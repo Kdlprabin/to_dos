@@ -1,9 +1,13 @@
-import React from 'react'
-import Header from '../components/Header'
+import React from "react";
+import Header from "../components/Header";
+import Card from "../components/Card";
 function Home() {
   return (
-    <Header />
-  )
+    <>
+      <Header />
+      <Card />
+    </>
+  );
 }
 
-export default Home
+export default Home;
