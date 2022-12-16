@@ -1,0 +1,18 @@
+.display-card {
+  background-color: pink;
+  width: 60vw;
+  height: 85vh;
+  margin: auto;
+  border: 2px solid red;
+  border-radius: 20px;
+}
+
+.add-items-form {
+  background-color: rgba(13, 227, 13, 0.532);
+  width: 60vw;
+  height: 85vh;
+  margin: 10px auto;
+  border: 2px solid green;
+  border-radius: 20px;
+  padding: 10px;
+}
