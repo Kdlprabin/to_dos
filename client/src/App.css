@@ -1,6 +1,6 @@
 .display-card {
   background-color: pink;
-  width: 60vw;
+  width: 80vw;
   height: 85vh;
   margin: auto;
   border: 2px solid red;
@@ -10,9 +10,19 @@
 .add-items-form {
   background-color: rgba(13, 227, 13, 0.532);
   width: 60vw;
-  height: 45vh;
+  height: 55vh;
   margin: 10px auto;
   border: 2px solid green;
   border-radius: 20px;
   padding: 10px;
+}
+
+#todo-item{
+  margin: 15px 10px;
+  color: white;
+  border: 2px solid rgba(255, 0, 0, 0.995);
+  border-radius:20px;
+  padding: 10px;
+  height: 15%;
+  background-color:rgb(255, 14, 14);
 }
