@@ -4,9 +4,7 @@ import axios from "axios";
 function Card() {
   const [data, setData] = useState([]);
   useEffect(() => {
-    axios
-      .get("https://jsonplaceholder.typicode.com/todos?_limit=5")
-      .then((response) => setData(response.data));
+    axios.get("/api/get").then((response) => console.log(response));
   }, []);
   return (
     <div className="display-card">

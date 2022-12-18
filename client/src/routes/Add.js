@@ -7,7 +7,7 @@ function Add() {
     title: "",
     description: "",
     happened_date: "",
-    if_done: "",
+    if_done: "false",
   };
   const [formData, setFormData] = useState(data);
   const [isSubmit, setIsSubmit] = useState(false);
@@ -22,19 +22,10 @@ function Add() {
     e.preventDefault();
     setIsSubmit(true);
   };
-
   useEffect(() => {
     if (isSubmit) {
-      // axios.post("http://localhost:3001/api/post", data);
-      axios
-        .post("https://jsonplaceholder.typicode.com/posts",{
-          title: 'foo',
-          body: 'bar',
-          userId: 1,
-        })
-        .then((response) => console.log(response.data));
+      axios.post("/api/post", formData).then((response) => console.log(response));
     }
-    setIsSubmit(false);
   });
   return (
     <div className="add-items-form">
