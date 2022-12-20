@@ -15,7 +15,7 @@ const db = mysql.createPool({
 app.get("/api/get", (req, res) => {
   const sqlGet = "SELECT * FROM todos WHERE id=1";
   db.query(sqlGet, (err, result) => {
-    res.send(result)
+    res.send(result);
   });
 });
 
