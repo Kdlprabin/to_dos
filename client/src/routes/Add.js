@@ -1,16 +1,16 @@
 import React from "react";
-import { Form, Button } from "react-bootstrap";
+import { Form, Button, Alert } from "react-bootstrap";
 import axios from "axios";
 import { useState, useEffect } from "react";
 function Add() {
   const data = {
     title: "",
-    description: "",
-    happened_date: "",
-    if_done: "false",
+    body: "",
+    userId: 1,
   };
   const [formData, setFormData] = useState(data);
   const [isSubmit, setIsSubmit] = useState(false);
+  const [status, setStatus] = useState(0);
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -24,7 +24,9 @@ function Add() {
   };
   useEffect(() => {
     if (isSubmit) {
-      axios.post("/api/post", formData).then((response) => console.log(response));
+      axios
+        .post("https://jsonplaceholder.typicode.com/posts", formData)
+        .then((response) => setStatus(response.status));
     }
   });
   return (
@@ -44,23 +46,17 @@ function Add() {
           <Form.Label>Description</Form.Label>
           <Form.Control
             as="textarea"
-            row={5}
             placeholder="Description...."
-            name="description"
-            value={formData.description}
+            name="body"
+            value={formData.body}
             onChange={handleChange}
           />
         </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Select Date</Form.Label>
-          <Form.Control
-            type="date"
-            placeholder="Completed Date"
-            name="happened_data"
-            value={formData.happened_date}
-            onChange={handleChange}
-          />
-        </Form.Group>
+        {status === 201 && (
+          <Alert key="success" variant="success">
+            Post submitted successfully.
+          </Alert>
+        )}
         <Button variant="primary" type="button" onClick={handleSubmit}>
           Submit
         </Button>
